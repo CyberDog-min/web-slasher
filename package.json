@@ -1,0 +1,10 @@
+{
+  "name": "page-slash",
+  "version": "0.1.0",
+  "private": true,
+  "description": "斩页 Page Slash - a Chrome extension for slashing page elements.",
+  "scripts": {
+    "test": "node --test test/core.test.js test/dom.test.js",
+    "smoke": "node tools/smoke-test.mjs"
+  }
+}

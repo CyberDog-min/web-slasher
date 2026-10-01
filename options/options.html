@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>斩页设置</title>
+    <link rel="stylesheet" href="./options.css">
+  </head>
+  <body>
+    <main>
+      <header class="page-header">
+        <div class="brand">
+          <img src="../assets/icons/icon48.png" alt="" width="42" height="42">
+          <div>
+            <p>PAGE SLASH</p>
+            <h1>斩页设置</h1>
+          </div>
+        </div>
+      </header>
+
+      <section class="settings-panel">
+        <div class="section-copy">
+          <h2>切换模式快捷键</h2>
+          <p>组合键至少包含一个修饰键和一个主键。</p>
+        </div>
+
+        <button id="combo-recorder" class="combo-recorder" type="button">
+          <span class="record-light"></span>
+          <span id="combo-value">Alt + Shift + S</span>
+        </button>
+
+        <div class="settings-actions">
+          <span id="combo-status" role="status">当前：Alt + Shift + S</span>
+          <button id="reset-combo" type="button">恢复默认</button>
+        </div>
+      </section>
+
+      <section class="tips-panel">
+        <h2>使用方式</h2>
+        <div class="tip-row">
+          <strong>进入模式</strong>
+          <span>在网页上按下已设置的组合键。</span>
+        </div>
+        <div class="tip-row">
+          <strong>退出模式</strong>
+          <span>在斩击模式内单击右键。</span>
+        </div>
+        <div class="tip-row">
+          <strong>恢复页面</strong>
+          <span>退出模式、刷新或页面地址变化时会恢复元素。</span>
+        </div>
+      </section>
+    </main>
+
+    <script src="../src/core.js"></script>
+    <script src="./options.js"></script>
+  </body>
+</html>

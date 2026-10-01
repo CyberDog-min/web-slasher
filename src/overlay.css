@@ -1,0 +1,127 @@
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  contain: layout style paint;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.slash-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.top-status {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 34px;
+  padding: 0 12px;
+  color: #f8fafc;
+  background: rgb(8 15 28 / 84%);
+  border: 1px solid rgb(255 255 255 / 16%);
+  border-radius: 7px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 24%);
+  transform: translateX(-50%);
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.mode-dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  background: #22d3ee;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #22d3ee;
+}
+
+.top-hint {
+  color: #a8b5c8;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.hud {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  display: flex;
+  align-items: stretch;
+  gap: 1px;
+  overflow: hidden;
+  padding: 1px;
+  color: #f8fafc;
+  background: rgb(8 15 28 / 84%);
+  border: 1px solid rgb(255 255 255 / 17%);
+  border-radius: 8px;
+  box-shadow: 0 14px 42px rgb(0 0 0 / 28%);
+  transform: translateX(-50%);
+}
+
+.hud-item {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  min-width: 108px;
+  padding: 10px 13px;
+  background: rgb(255 255 255 / 4%);
+  white-space: nowrap;
+}
+
+.hud-label {
+  color: #93a4ba;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hud-value {
+  color: #ffffff;
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+
+.hud-sword .hud-value {
+  color: var(--sword-color, #e8f2ff);
+  text-shadow: 0 0 12px var(--sword-trail, #94a3b8);
+}
+
+@media (max-width: 560px) {
+  .top-hint {
+    display: none;
+  }
+
+  .hud {
+    bottom: 14px;
+    max-width: calc(100vw - 20px);
+  }
+
+  .hud-item {
+    min-width: 0;
+    flex: 1 1 0;
+    padding: 8px 10px;
+  }
+
+  .hud-label {
+    display: none;
+  }
+}

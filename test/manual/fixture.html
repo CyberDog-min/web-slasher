@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>斩页测试场</title>
+    <link rel="stylesheet" href="./fixture.css">
+  </head>
+  <body>
+    <header class="fixture-header">
+      <div>
+        <p>PAGE SLASH LAB</p>
+        <h1>斩页测试场</h1>
+      </div>
+      <a id="link" href="https://example.com">链接防误触目标</a>
+    </header>
+
+    <main>
+      <section class="test-section">
+        <div class="section-title">
+          <h2>尺寸与耐久</h2>
+          <span>小目标应一击击破，大目标需要更多次</span>
+        </div>
+        <div class="size-row">
+          <button id="small" class="target target-small" type="button">小按钮</button>
+          <div id="medium" class="target target-medium">
+            <strong>中等卡片</strong>
+            <span>约 220 × 150</span>
+          </div>
+          <div id="large" class="target target-large">
+            <strong>大型区域</strong>
+            <span>大型元素拥有更高耐久与更高击破分</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="test-section two-column">
+        <article class="test-card">
+          <h2>嵌套命中</h2>
+          <p>剑刃经过文字时应选择更深层的子元素，而不是整个外层容器。</p>
+          <div id="nested-parent" class="nested-parent">
+            <button id="nested-child" type="button">嵌套子按钮</button>
+          </div>
+        </article>
+
+        <article class="test-card">
+          <h2>过滤条件</h2>
+          <p>透明和隐藏目标不应参与命中。</p>
+          <div class="filter-row">
+            <div id="transparent" class="target transparent-target">透明目标</div>
+            <div id="hidden" class="target hidden-target">隐藏目标</div>
+            <div id="tiny" class="tiny-target">小</div>
+          </div>
+        </article>
+      </section>
+
+      <section class="test-section">
+        <div class="section-title">
+          <h2>动态元素</h2>
+          <span>每 2 秒追加一张卡片，无需刷新即可直接斩击</span>
+        </div>
+        <div id="dynamic" class="dynamic-grid" aria-live="off"></div>
+      </section>
+    </main>
+
+    <script src="./fixture.js"></script>
+  </body>
+</html>

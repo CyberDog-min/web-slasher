@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>斩页 Page Slash</title>
+    <link rel="stylesheet" href="./popup.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <img src="../assets/icons/icon48.png" alt="" width="28" height="28">
+        <div>
+          <strong>斩页</strong>
+          <span>PAGE SLASH</span>
+        </div>
+      </div>
+      <button id="mode-toggle" class="mode-toggle" type="button">进入模式</button>
+    </header>
+
+    <main>
+      <section class="score-grid" aria-label="分数">
+        <article>
+          <span>本页得分</span>
+          <strong id="page-score">--</strong>
+        </article>
+        <article>
+          <span>历史总分</span>
+          <strong id="lifetime-score">0</strong>
+        </article>
+      </section>
+
+      <section class="progress-panel">
+        <div class="section-heading">
+          <span>下一把剑</span>
+          <strong id="progress-label">已解锁全部</strong>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <span id="progress-fill"></span>
+        </div>
+      </section>
+
+      <section class="sword-section">
+        <div class="section-heading">
+          <span>剑库</span>
+          <small>仅改变视觉与音色</small>
+        </div>
+        <div id="sword-list" class="sword-list"></div>
+      </section>
+    </main>
+
+    <footer>
+      <button id="sound-toggle" type="button" aria-pressed="true">
+        <span class="sound-indicator"></span>
+        <span id="sound-label">音效开启</span>
+      </button>
+      <button id="open-options" type="button">快捷键设置</button>
+    </footer>
+
+    <p id="page-note" class="page-note" hidden>当前页面不支持扩展运行</p>
+
+    <script src="../src/core.js"></script>
+    <script src="./popup.js"></script>
+  </body>
+</html>
