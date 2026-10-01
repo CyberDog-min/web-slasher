@@ -1,4 +1,4 @@
-# 斩页 Page Slash
+# 斩页 Web Slasher🗡️
 
 > 觉得上班无聊？😊
 >
