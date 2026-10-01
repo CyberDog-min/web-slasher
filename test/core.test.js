@@ -3,15 +3,15 @@ const assert = require('node:assert/strict');
 const Core = require('../src/core.js');
 
 test('maps visible area to five durability tiers', () => {
-  assert.deepEqual(Core.getElementTier(3999), { tier: 1, hp: 1, baseScore: 60 });
-  assert.deepEqual(Core.getElementTier(4000), { tier: 1, hp: 1, baseScore: 60 });
-  assert.deepEqual(Core.getElementTier(4001), { tier: 2, hp: 2, baseScore: 160 });
-  assert.deepEqual(Core.getElementTier(16000), { tier: 2, hp: 2, baseScore: 160 });
-  assert.deepEqual(Core.getElementTier(16001), { tier: 3, hp: 3, baseScore: 360 });
-  assert.deepEqual(Core.getElementTier(64000), { tier: 3, hp: 3, baseScore: 360 });
-  assert.deepEqual(Core.getElementTier(64001), { tier: 4, hp: 4, baseScore: 760 });
-  assert.deepEqual(Core.getElementTier(256000), { tier: 4, hp: 4, baseScore: 760 });
-  assert.deepEqual(Core.getElementTier(256001), { tier: 5, hp: 5, baseScore: 1600 });
+  assert.deepEqual(Core.getElementTier(3999), { tier: 1, hp: 1, baseScore: 15 });
+  assert.deepEqual(Core.getElementTier(4000), { tier: 1, hp: 1, baseScore: 15 });
+  assert.deepEqual(Core.getElementTier(4001), { tier: 2, hp: 2, baseScore: 40 });
+  assert.deepEqual(Core.getElementTier(16000), { tier: 2, hp: 2, baseScore: 40 });
+  assert.deepEqual(Core.getElementTier(16001), { tier: 3, hp: 3, baseScore: 90 });
+  assert.deepEqual(Core.getElementTier(64000), { tier: 3, hp: 3, baseScore: 90 });
+  assert.deepEqual(Core.getElementTier(64001), { tier: 4, hp: 4, baseScore: 200 });
+  assert.deepEqual(Core.getElementTier(256000), { tier: 4, hp: 4, baseScore: 200 });
+  assert.deepEqual(Core.getElementTier(256001), { tier: 5, hp: 5, baseScore: 450 });
 });
 
 test('damages an element and awards a larger final blow', () => {
@@ -20,12 +20,12 @@ test('damages an element and awards a larger final blow', () => {
   const second = Core.registerHit(state, 10000, 2000);
 
   assert.equal(first.hit.damage, 1);
-  assert.equal(first.hit.score, 80);
+  assert.equal(first.hit.score, 20);
   assert.equal(first.hit.broken, false);
-  assert.equal(second.hit.score, 138);
+  assert.equal(second.hit.score, 35);
   assert.equal(second.hit.broken, true);
-  assert.equal(second.state.pageScore, 218);
-  assert.equal(second.state.lifetimeScore, 218);
+  assert.equal(second.state.pageScore, 55);
+  assert.equal(second.state.lifetimeScore, 55);
 });
 
 test('increases combo within the combo window and resets after timeout', () => {
@@ -39,9 +39,9 @@ test('increases combo within the combo window and resets after timeout', () => {
 });
 
 test('unlocks swords at exact lifetime thresholds', () => {
-  assert.deepEqual(Core.unlockSwords(799), ['iron']);
-  assert.deepEqual(Core.unlockSwords(800), ['iron', 'thunder']);
-  assert.deepEqual(Core.unlockSwords(22000), [
+  assert.deepEqual(Core.unlockSwords(999), ['iron']);
+  assert.deepEqual(Core.unlockSwords(1000), ['iron', 'thunder']);
+  assert.deepEqual(Core.unlockSwords(256000), [
     'iron',
     'thunder',
     'frost',
@@ -63,12 +63,16 @@ test('returns isolated copies of the canonical sword catalog', () => {
   ]);
   assert.deepEqual(swords.map((sword) => sword.threshold), [
     0,
-    800,
-    2500,
-    6000,
-    12000,
-    22000
+    1000,
+    4000,
+    16000,
+    64000,
+    256000
   ]);
+
+  for (let index = 2; index < swords.length; index += 1) {
+    assert.equal(swords[index].threshold, swords[index - 1].threshold * 4);
+  }
 
   swords[0].name = 'mutated';
   assert.equal(Core.getSwords()[0].name, '铁刃');

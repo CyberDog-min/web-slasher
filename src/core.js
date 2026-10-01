@@ -2,11 +2,11 @@
   'use strict';
 
   const TIERS = [
-    { maxArea: 4000, hp: 1, baseScore: 60 },
-    { maxArea: 16000, hp: 2, baseScore: 160 },
-    { maxArea: 64000, hp: 3, baseScore: 360 },
-    { maxArea: 256000, hp: 4, baseScore: 760 },
-    { maxArea: Infinity, hp: 5, baseScore: 1600 }
+    { maxArea: 4000, hp: 1, baseScore: 15 },
+    { maxArea: 16000, hp: 2, baseScore: 40 },
+    { maxArea: 64000, hp: 3, baseScore: 90 },
+    { maxArea: 256000, hp: 4, baseScore: 200 },
+    { maxArea: Infinity, hp: 5, baseScore: 450 }
   ];
 
   const SWORDS = Object.freeze([
@@ -21,7 +21,7 @@
     Object.freeze({
       id: 'thunder',
       name: '雷光',
-      threshold: 800,
+      threshold: 1000,
       color: '#fff7a8',
       trail: '#38bdf8',
       tone: 680
@@ -29,7 +29,7 @@
     Object.freeze({
       id: 'frost',
       name: '霜锋',
-      threshold: 2500,
+      threshold: 4000,
       color: '#e0fbff',
       trail: '#67e8f9',
       tone: 760
@@ -37,7 +37,7 @@
     Object.freeze({
       id: 'crimson',
       name: '赤霄',
-      threshold: 6000,
+      threshold: 16000,
       color: '#ffe0d8',
       trail: '#fb7185',
       tone: 420
@@ -45,7 +45,7 @@
     Object.freeze({
       id: 'meteor',
       name: '星陨',
-      threshold: 12000,
+      threshold: 64000,
       color: '#fff1c7',
       trail: '#f59e0b',
       tone: 340
@@ -53,7 +53,7 @@
     Object.freeze({
       id: 'void',
       name: '无相',
-      threshold: 22000,
+      threshold: 256000,
       color: '#ffffff',
       trail: '#a78bfa',
       tone: 260

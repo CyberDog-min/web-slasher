@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "斩页 Page Slash",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "把网页元素当作目标，用鼠标剑刃斩击并累计得分。",
   "permissions": [
     "storage",
